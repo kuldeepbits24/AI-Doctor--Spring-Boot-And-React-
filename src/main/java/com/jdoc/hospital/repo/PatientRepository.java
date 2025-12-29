@@ -10,7 +10,9 @@ public interface PatientRepository extends JpaRepository<PatientProfile, Long> {
   Optional<PatientProfile> findByUserId(Long userId);
   List<PatientProfile> findByApproved(boolean approved);
   long countByApproved(boolean approved);
-
+   
   List<PatientProfile> findByApprovedTrueAndAssignedDoctorUserId(Long assignedDoctorUserId);
   List<PatientProfile> findByApprovedTrueAndAssignedDoctorUserIdAndUserFirstNameContainingIgnoreCase(Long assignedDoctorUserId, String firstNamePart);
+  List<PatientProfile> findByApprovedTrueAndAssignedDoctorUserIdAndSymptomsContainingIgnoreCase( Long assignedDoctorUserId, String symptoms);
+
 }
